@@ -5,8 +5,7 @@
 *
 */
 
-#include "Pozyx.h"
-#include <Wire.h>
+#include "Pozyx.hpp"
 
 extern "C" {
   #include "Pozyx_definitions.h"
@@ -784,7 +783,7 @@ int PozyxClass::doPositioning(coordinates_t *coordinates, uint8_t dimension, int
   int status = setPositionAlgorithm(algorithm, dimension);
   if (status != POZYX_SUCCESS)
     return status;
-  return doPositioning(coordinates, dimension, height);
+  return PozyxClass::doPositioning(coordinates, dimension, height);// doPositioning(coordinates, dimension, height);
 }
 
 int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_t height)
@@ -1436,20 +1435,10 @@ void __attribute__((weak)) __assert (const char *func, const char *file, int lin
 void __attribute__((weak)) __assert_pozyx (const char *__func, const char *__file, int __lineno)
 {
     // print out whatever you like here, function name, filename, line#, expression that failed.
-  if (Serial){
-    Serial.print("Assertion failed in function : ");
-    Serial.println(__func);
-    Serial.print("Filename: ");
-    Serial.println(__file);
-    Serial.print("Line number: ");
-    Serial.println(__lineno);
 
-    // platform independent delay to allow the string to be printed
-    delay(10);
-  }
 
   // halt after outputting information
-  abort();
+
 }
 
 #endif
