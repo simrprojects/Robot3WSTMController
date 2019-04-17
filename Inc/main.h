@@ -59,8 +59,6 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define USER_Btn_Pin GPIO_PIN_13
-#define USER_Btn_GPIO_Port GPIOC
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
 #define RMII_MDC_Pin GPIO_PIN_1
@@ -75,6 +73,10 @@
 #define RMII_RXD0_GPIO_Port GPIOC
 #define RMII_RXD1_Pin GPIO_PIN_5
 #define RMII_RXD1_GPIO_Port GPIOC
+#define POZYX_INT2_Pin GPIO_PIN_15
+#define POZYX_INT2_GPIO_Port GPIOF
+#define POZYX_INT3_Pin GPIO_PIN_13
+#define POZYX_INT3_GPIO_Port GPIOE
 #define RMII_TXD1_Pin GPIO_PIN_13
 #define RMII_TXD1_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14

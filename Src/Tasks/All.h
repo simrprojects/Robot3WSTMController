@@ -1,28 +1,28 @@
 /*
  * All.h
  *
- *  Created on: 27.03.2019
+ *  Created on: 12.04.2019
  *      Author: Igor
  */
 
 #ifndef TASKS_ALL_H_
 #define TASKS_ALL_H_
 
-
 #ifdef __cplusplus
- extern "C" {
+extern "C"{
 #endif
+
+
 
 #include "cmsis_os.h"
 
 void All_begin(void);
 
-//extern osThreadId GyroTaskHandle; np
+extern osThreadId PozyxTaskHandle;
 // trzeba dac takie zadania
 
 #ifdef __cplusplus
- }
-
+}
 #endif
 
 

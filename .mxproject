@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/Igor/Desktop/PRACA_PRZEJSCIOWA/praca-przejsciowa/Inc
+HeaderPath=C:/Users/Igor/Desktop/praca-przejsciowa/Inc
 HeaderFiles=gpio.h;stm32h7xx_it.h;stm32h7xx_hal_conf.h;main.h;FreeRTOSConfig.h;i2c.h;
-SourcePath=C:/Users/Igor/Desktop/PRACA_PRZEJSCIOWA/praca-przejsciowa/Src
+SourcePath=C:/Users/Igor/Desktop/praca-przejsciowa/Src
 SourceFiles=gpio.c;stm32h7xx_it.c;stm32h7xx_hal_msp.c;main.c;freertos.c;i2c.c;stm32h7xx_hal_timebase_TIM.c;
 
 [PreviousLibFiles]
