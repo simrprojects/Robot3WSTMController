@@ -6,14 +6,14 @@
  */
 
 
-#include "cmsis_os.h"
+
 #include "All.h"
 #include "main.h"
 #include "FreeRTOSConfig.h"
 extern "C"{
 #include "gpio.h"
 #include "FreeRTOS.h"
-
+#include "cmsis_os.h"
 }
 
 #include "Pozyx.hpp"
