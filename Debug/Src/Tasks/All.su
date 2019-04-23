@@ -1,2 +1,2 @@
-All.cpp:25:6:void All_begin()	40	static
-All.cpp:31:6:void StartPozyxTask(const void*)	16	static
+All.cpp:27:6:void All_begin()	16	static
+All.cpp:31:7:void PozyxTask(void*)	24	static

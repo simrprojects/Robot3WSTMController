@@ -232,7 +232,7 @@ class PozyxClass
 {
 protected:
     static int _mode;               // the mode of operation, can be MODE_INTERRUPT or MODE_POLLING
-    static int _interrupt;          // variable to indicate that an interrupt has occured
+
 
 
     static int _hw_version;         // Pozyx harware version
@@ -297,6 +297,7 @@ protected:
     */
 
 public:
+    static int _interrupt;          // variable to indicate that an interrupt has occured
 
     /**
         * Function: Init

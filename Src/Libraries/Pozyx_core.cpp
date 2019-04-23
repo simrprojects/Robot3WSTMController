@@ -27,6 +27,7 @@ int PozyxClass::_mode;
 int PozyxClass::_hw_version;       // pozyx harware version
 int PozyxClass::_fw_version;       // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
 
+
 I2C_HandleTypeDef i2c;
 /**
  * The interrupt handler for the pozyx device: keeping it uber short!
@@ -551,7 +552,7 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
 
 	uint8_t status = 1;
 
-	status = HAL_I2C_Mem_Write(&hi2c1, POZYX_I2C_ADDRESS, reg_address, 1, reinterpret_cast<uint8_t*>(&pData), sizeof(pData), HAL_MAX_DELAY);
+	status = HAL_I2C_Mem_Write(&hi2c1, POZYX_I2C_ADDRESS , reg_address, 1, (uint8_t*)&pData, size, HAL_MAX_DELAY);
 	return (status);
 
 }
@@ -562,11 +563,14 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
 int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int read_len)
 {
 	uint8_t status = 1;
-	status &= HAL_I2C_Master_Transmit(&hi2c1,POZYX_I2C_ADDRESS, write_data,write_len,HAL_MAX_DELAY);
+	//uint8_t *pData = 0;
+	status &= HAL_I2C_Master_Transmit(&hi2c1,POZYX_I2C_ADDRESS ,(uint8_t*)&write_data, write_len,HAL_MAX_DELAY);
+	//status &= HAL_I2C_Mem_Write(&hi2c1, POZYX_I2C_ADDRESS ,write_data, 1, (uint8_t*)&pData, write_len, HAL_MAX_DELAY);
 
 	//if(!status)return(status);
 
-	status &= HAL_I2C_Master_Receive(&hi2c1,POZYX_I2C_ADDRESS, read_data, read_len,HAL_MAX_DELAY);
+	status &= HAL_I2C_Master_Receive(&hi2c1,POZYX_I2C_ADDRESS ,(uint8_t*)&read_data, read_len,HAL_MAX_DELAY);
+	//status &= HAL_I2C_Mem_Read(&hi2c1, POZYX_I2C_ADDRESS , read_data, 1, (uint8_t*)&pData, read_len, HAL_MAX_DELAY);
 
 	return (status);
 }
@@ -576,11 +580,11 @@ int PozyxClass::Init(void)
 	int status = 1;
 	uint32_t trials = 10;
 	HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
-	status &=  HAL_I2C_IsDeviceReady(&hi2c1,POZYX_I2C_ADDRESS, trials,100);
-	if(status){
+	status =  HAL_I2C_IsDeviceReady(&hi2c1,POZYX_I2C_ADDRESS, trials,100);
+	if(status == POZYX_SUCCESS){
 		for(int i=0;i<10;i++){
 			HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-			HAL_Delay(50);
+			HAL_Delay(100);
 			HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
 		}
 		HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);

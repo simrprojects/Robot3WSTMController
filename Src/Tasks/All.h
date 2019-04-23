@@ -18,8 +18,10 @@ extern "C"{
 
 void All_begin(void);
 
-extern osThreadId PozyxTaskHandle;
-// trzeba dac takie zadania
+
+//extern osThreadId PozyxTaskHandle;
+extern xTaskHandle  PozyxTaskHandle;
+
 
 #ifdef __cplusplus
 }
