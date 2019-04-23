@@ -552,7 +552,7 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
 
 	uint8_t status = 1;
 
-	status = HAL_I2C_Mem_Write(&hi2c1, POZYX_I2C_ADDRESS , reg_address, 1, (uint8_t*)&pData, size, HAL_MAX_DELAY);
+	status = HAL_I2C_Mem_Write(&hi2c1, POZYX_I2C_ADDRESS , reg_address, 1, pData, size, HAL_MAX_DELAY);
 	return (status);
 
 }
