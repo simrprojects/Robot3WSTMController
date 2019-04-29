@@ -71,44 +71,44 @@
 
 /* Positioning data */
 
-#define POZYX_POS_X             0x30 <<1  /* x-coordinate of the device in mm. */
-#define POZYX_POS_Y             0x34 <<1 /* y-coordinate of the device in mm. */
-#define POZYX_POS_Z             0x38 <<1   /* z-coordinate of the device in mm. */
-#define POZYX_POS_ERR_X         0x3C <<1  /* estimated error covariance of x */
-#define POZYX_POS_ERR_Y         0x3E <<1   /* estimated error covariance of y */
-#define POZYX_POS_ERR_Z         0x40 <<1   /* estimated error covariance of z */
-#define POZYX_POS_ERR_XY        0x42 <<1   /* estimated covariance of xy */
-#define POZYX_POS_ERR_XZ        0x44 <<1   /* estimated covariance of xz */
-#define POZYX_POS_ERR_YZ        0x46 <<1   /* estimated covariance of yz */
+#define POZYX_POS_X             0x30  /* x-coordinate of the device in mm. */
+#define POZYX_POS_Y             0x34 /* y-coordinate of the device in mm. */
+#define POZYX_POS_Z             0x38   /* z-coordinate of the device in mm. */
+#define POZYX_POS_ERR_X         0x3C /* estimated error covariance of x */
+#define POZYX_POS_ERR_Y         0x3E /* estimated error covariance of y */
+#define POZYX_POS_ERR_Z         0x40 /* estimated error covariance of z */
+#define POZYX_POS_ERR_XY        0x42 /* estimated covariance of xy */
+#define POZYX_POS_ERR_XZ        0x44 /* estimated covariance of xz */
+#define POZYX_POS_ERR_YZ        0x46 /* estimated covariance of yz */
 
 #define POZYX_MAX_LIN_ACC       0x4E   /* maximum linear acceleration since */
 
 /* Sensor data */
 
-#define POZYX_PRESSURE        0x50 <<1   /* Pressure data */
-#define POZYX_ACCEL_X         0x54 <<1   /* Accelerometer data (in mg) */
-#define POZYX_ACCEL_Y         0x56 <<1   /*  */
-#define POZYX_ACCEL_Z         0x58 <<1   /*  */
-#define POZYX_MAGN_X          0x5A <<1   /* Magnemtometer data */
-#define POZYX_MAGN_Y          0x5C <<1   /*  */
-#define POZYX_MAGN_Z          0x5E <<1   /*  */
-#define POZYX_GYRO_X          0x60 <<1   /* Gyroscope data */
-#define POZYX_GYRO_Y          0x62 <<1   /*  */
-#define POZYX_GYRO_Z          0x64 <<1   /*  */
-#define POZYX_EUL_HEADING     0x66 <<1   /* Euler angles heading (or yaw) */
-#define POZYX_EUL_ROLL        0x68 <<1   /* Euler angles roll */
-#define POZYX_EUL_PITCH       0x6A <<1   /* Euler angles pitch */
-#define POZYX_QUAT_W          0x6C <<1   /* Weight of quaternion. */
-#define POZYX_QUAT_X          0x6E <<1   /* x of quaternion */
-#define POZYX_QUAT_Y          0x70 <<1   /* y of quaternion */
-#define POZYX_QUAT_Z          0x72 <<1   /* z of quaternion */
-#define POZYX_LIA_X           0x74 <<1   /* Linear acceleration in x-direction */
-#define POZYX_LIA_Y           0x76 <<1   /*  */
-#define POZYX_LIA_Z           0x78 <<1   /*  */
-#define POZYX_GRAV_X          0x7A <<1   /* x-component of gravity vector  */
-#define POZYX_GRAV_Y          0x7C <<1   /* y-component of gravity vector  */
-#define POZYX_GRAV_Z          0x7E <<1  /* z-component of gravity vector  */
-#define POZYX_TEMPERATURE     0x80 <<1  /* Temperature */
+#define POZYX_PRESSURE        0x50    /* Pressure data */
+#define POZYX_ACCEL_X         0x54    /* Accelerometer data (in mg) */
+#define POZYX_ACCEL_Y         0x56    /*  */
+#define POZYX_ACCEL_Z         0x58    /*  */
+#define POZYX_MAGN_X          0x5A    /* Magnemtometer data */
+#define POZYX_MAGN_Y          0x5C    /*  */
+#define POZYX_MAGN_Z          0x5E    /*  */
+#define POZYX_GYRO_X          0x60    /* Gyroscope data */
+#define POZYX_GYRO_Y          0x62    /*  */
+#define POZYX_GYRO_Z          0x64    /*  */
+#define POZYX_EUL_HEADING     0x66    /* Euler angles heading (or yaw) */
+#define POZYX_EUL_ROLL        0x68    /* Euler angles roll */
+#define POZYX_EUL_PITCH       0x6A    /* Euler angles pitch */
+#define POZYX_QUAT_W          0x6C    /* Weight of quaternion. */
+#define POZYX_QUAT_X          0x6E    /* x of quaternion */
+#define POZYX_QUAT_Y          0x70    /* y of quaternion */
+#define POZYX_QUAT_Z          0x72    /* z of quaternion */
+#define POZYX_LIA_X           0x74    /* Linear acceleration in x-direction */
+#define POZYX_LIA_Y           0x76    /*  */
+#define POZYX_LIA_Z           0x78    /*  */
+#define POZYX_GRAV_X          0x7A    /* x-component of gravity vector  */
+#define POZYX_GRAV_Y          0x7C    /* y-component of gravity vector  */
+#define POZYX_GRAV_Z          0x7E    /* z-component of gravity vector  */
+#define POZYX_TEMPERATURE     0x80    /* Temperature */
 
 /* General data */
 
