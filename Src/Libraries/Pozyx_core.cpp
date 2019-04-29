@@ -578,6 +578,10 @@ int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_d
 		status = HAL_I2C_Mem_Read(&hi2c1, POZYX_I2C_ADDRESS , __REV16(*(unsigned short*)write_data), 2, read_data, read_len, HAL_MAX_DELAY)==HAL_OK;
 		break;
 	default:
+		/* TODO */
+		/* dodac obs³ógê wysy³ania wiêkszej iloœci danych */
+		HAL_I2C_Master_Transmit(&hi2c1, POZYX_I2C_ADDRESS, write_data,write_len,100);
+		HAL_I2C_Master_Receive(&hi2c1, POZYX_I2C_ADDRESS, read_data, read_len,100);
 		while(1);
 	}
 	return (status);
