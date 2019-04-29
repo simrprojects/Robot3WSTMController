@@ -562,16 +562,24 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
   */
 int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int read_len)
 {
-	uint8_t status = 1;
+	uint8_t status;
 	//uint8_t *pData = 0;
-	status &= HAL_I2C_Master_Transmit(&hi2c1,POZYX_I2C_ADDRESS ,(uint8_t*)&write_data, write_len,HAL_MAX_DELAY);
+	//status &= HAL_I2C_Master_Transmit(&hi2c1,POZYX_I2C_ADDRESS ,(uint8_t*)&write_data, write_len,HAL_MAX_DELAY);
 	//status &= HAL_I2C_Mem_Write(&hi2c1, POZYX_I2C_ADDRESS ,write_data, 1, (uint8_t*)&pData, write_len, HAL_MAX_DELAY);
 
 	//if(!status)return(status);
 
-	status &= HAL_I2C_Master_Receive(&hi2c1,POZYX_I2C_ADDRESS ,(uint8_t*)&read_data, read_len,HAL_MAX_DELAY);
-	//status &= HAL_I2C_Mem_Read(&hi2c1, POZYX_I2C_ADDRESS , read_data, 1, (uint8_t*)&pData, read_len, HAL_MAX_DELAY);
-
+	//status &= HAL_I2C_Master_Receive(&hi2c1,POZYX_I2C_ADDRESS ,(uint8_t*)&read_data, read_len,HAL_MAX_DELAY);
+	switch(write_len){
+	case 1:
+		status = HAL_I2C_Mem_Read(&hi2c1, POZYX_I2C_ADDRESS , *write_data, 1, read_data, read_len, HAL_MAX_DELAY)==HAL_OK;
+		break;
+	case 2:
+		status = HAL_I2C_Mem_Read(&hi2c1, POZYX_I2C_ADDRESS , __REV16(*(unsigned short*)write_data), 2, read_data, read_len, HAL_MAX_DELAY)==HAL_OK;
+		break;
+	default:
+		while(1);
+	}
 	return (status);
 }
 

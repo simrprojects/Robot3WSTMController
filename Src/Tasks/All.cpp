@@ -39,7 +39,7 @@ void All_begin(void){
 
 		 }
 		 else {
-			 if(regs[0] == (0x43>>1)){
+			 if(regs[0] == (0x43)){
 			 HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET); // w przypadku gdyby sie nie uda³o powinna sie zapalic jedna z diod
 			 }
 			 else if (regs[0] == 0x00){
