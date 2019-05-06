@@ -30,7 +30,7 @@ void All_begin(void){
 
  void PozyxTask(void * argument){
 
-	 // Pozyx.Init();
+	 //   Pozyx.Init();
 
 	 	 if(Pozyx.regRead(POZYX_WHO_AM_I, regs, 3) == POZYX_FAILURE){
 	     //if(Pozyx.regRead(POZYX_ST_RESULT, &selftest, 1) == POZYX_FAILURE){
