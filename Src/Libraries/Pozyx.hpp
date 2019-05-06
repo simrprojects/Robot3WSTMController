@@ -12,6 +12,8 @@
 
 #include <inttypes.h>
 #include "String.h"
+#include "FreeRTOS.h"
+#include "queue.h"
 
 
 #undef NULL
@@ -230,6 +232,8 @@ typedef struct __attribute__((packed))_device_range {
 */
 class PozyxClass
 {
+private:
+	static xQueueHandle irqQueue;/**<kolejka do synchronizacji w¹tku i linii INT*/
 protected:
     static int _mode;               // the mode of operation, can be MODE_INTERRUPT or MODE_POLLING
 
@@ -242,7 +246,6 @@ protected:
     static void delay(int ms){};
     static unsigned int millis(void){return 0;}
     void abort(void){};
-
 
     /**
     * Function: i2cWriteWrite
@@ -1871,7 +1874,10 @@ public:
     * @retval #POZYX_FAILURE function failed.
     */
     static int getDeviceCoordinates(uint16_t device_id, coordinates_t *coordinates, uint16_t remote_id = NULL);
-
+    /**
+     *
+     */
+    static void SendMsgFromIrq(void);
 /** @}*/
 
 };

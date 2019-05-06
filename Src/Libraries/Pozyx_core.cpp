@@ -9,6 +9,8 @@
 #include "math.h"
 #include "i2c.h"
 #include "gpio.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 #if defined(__SAM3X8E__)
 // Arduino Due
@@ -17,6 +19,7 @@
 
 
 extern "C" {
+
   #include "Pozyx_definitions.h"
 	extern HAL_StatusTypeDef HAL_I2C_WriteReadCustom(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pDataWrite, uint16_t writeSize, uint8_t *pDataRead, uint16_t readSize, uint32_t Timeout);
 }
@@ -602,6 +605,27 @@ int PozyxClass::Init(void)
 		HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
 	}
 	return status;
+}
+
+void PozyxClass::SendMsgFromIrq(void){
+	int msg=1;
+
+	BaseType_t xHigherPriorityTaskWokenByPost;
+
+	// We have not woken a task at the start of the ISR.
+	xHigherPriorityTaskWokenByPost = pdFALSE;
+
+	// Loop until the buffer is empty.
+		// Post each byte.
+	xQueueSendFromISR(irqQueue,&msg,&xHigherPriorityTaskWokenByPost);
+
+
+	// Now the buffer is empty we can switch context if necessary.  Note that the
+	// name of the yield function required is port specific.
+	if( xHigherPriorityTaskWokenByPost )
+	{
+		taskYIELD();
+	}
 }
 
 PozyxClass Pozyx;
