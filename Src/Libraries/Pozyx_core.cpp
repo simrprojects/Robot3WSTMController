@@ -150,12 +150,12 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
 
     // use interrupt as provided and initiate the interrupt mask
 	  //TODO dodac obsluge linii int
-   /* uint8_t int_mask = interrupts;
+    uint8_t int_mask = interrupts;
     configInterruptPin(5+interrupt_pin, PIN_MODE_PUSHPULL, PIN_ACTIVE_LOW, 0);
 
     if (regWrite(POZYX_INT_MASK, &int_mask, 1) == POZYX_FAILURE){
       return POZYX_FAILURE;
-    }*/
+    }
   }
 
   // all done

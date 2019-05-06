@@ -1460,7 +1460,7 @@ Discarded input sections
  .ARM.exidx.text._ZN10PozyxClass3IRQEv
                 0x00000000        0x8 Src\Libraries\Pozyx_core.o
  .text._ZN10PozyxClass5beginEbiii
-                0x00000000       0xf4 Src\Libraries\Pozyx_core.o
+                0x00000000      0x138 Src\Libraries\Pozyx_core.o
  .ARM.extab.text._ZN10PozyxClass5beginEbiii
                 0x00000000        0xc Src\Libraries\Pozyx_core.o
  .ARM.exidx.text._ZN10PozyxClass5beginEbiii
@@ -3316,7 +3316,7 @@ LOAD d:/programs/atollic truestudio/truestudio for stm32 9.1.0/armtools/bin/../l
                 0x000006a9       0x22 d:/programs/atollic truestudio/truestudio for stm32 9.1.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/fpu/fpv5-sp-d16/crtn.o
 OUTPUT(praca_przejsciowa.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x2dc63
+.debug_info     0x00000000    0x2dc7b
  .debug_info    0x00000000     0x1cfd Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.o
  .debug_info    0x00001cfd     0x1a81 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.o
  .debug_info    0x0000377e     0x1473 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.o
@@ -3331,19 +3331,19 @@ OUTPUT(praca_przejsciowa.elf elf32-littlearm)
  .debug_info    0x0001618d      0x4ec Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1\port.o
  .debug_info    0x00016679      0xc7d Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.o
  .debug_info    0x000172f6     0x2930 Middlewares\Third_Party\FreeRTOS\Source\tasks.o
- .debug_info    0x00019c26     0x2ef6 Src\Libraries\Pozyx_core.o
- .debug_info    0x0001cb1c     0x3dc2 Src\Libraries\Pozyx_lib.o
- .debug_info    0x000208de     0x1e47 Src\Tasks\All.o
- .debug_info    0x00022725     0x206b Src\Tasks\Callbacks.o
- .debug_info    0x00024790      0x246 Src\freertos.o
- .debug_info    0x000249d6     0x145c Src\gpio.o
- .debug_info    0x00025e32     0x155c Src\i2c.o
- .debug_info    0x0002738e     0x1cd4 Src\main.o
- .debug_info    0x00029062     0x116e Src\stm32h7xx_hal_msp.o
- .debug_info    0x0002a1d0     0x187e Src\stm32h7xx_hal_timebase_TIM.o
- .debug_info    0x0002ba4e     0x1053 Src\stm32h7xx_it.o
- .debug_info    0x0002caa1     0x114f Src\system_stm32h7xx.o
- .debug_info    0x0002dbf0       0x73 startup\startup_stm32h743xx.o
+ .debug_info    0x00019c26     0x2f0e Src\Libraries\Pozyx_core.o
+ .debug_info    0x0001cb34     0x3dc2 Src\Libraries\Pozyx_lib.o
+ .debug_info    0x000208f6     0x1e47 Src\Tasks\All.o
+ .debug_info    0x0002273d     0x206b Src\Tasks\Callbacks.o
+ .debug_info    0x000247a8      0x246 Src\freertos.o
+ .debug_info    0x000249ee     0x145c Src\gpio.o
+ .debug_info    0x00025e4a     0x155c Src\i2c.o
+ .debug_info    0x000273a6     0x1cd4 Src\main.o
+ .debug_info    0x0002907a     0x116e Src\stm32h7xx_hal_msp.o
+ .debug_info    0x0002a1e8     0x187e Src\stm32h7xx_hal_timebase_TIM.o
+ .debug_info    0x0002ba66     0x1053 Src\stm32h7xx_it.o
+ .debug_info    0x0002cab9     0x114f Src\system_stm32h7xx.o
+ .debug_info    0x0002dc08       0x73 startup\startup_stm32h743xx.o
 
 .debug_abbrev   0x00000000     0x4611
  .debug_abbrev  0x00000000      0x33e Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.o
@@ -3480,7 +3480,7 @@ OUTPUT(praca_przejsciowa.elf elf32-littlearm)
  .debug_ranges  0x00001500       0x18 Src\system_stm32h7xx.o
  .debug_ranges  0x00001518       0x20 startup\startup_stm32h743xx.o
 
-.debug_line     0x00000000     0xade8
+.debug_line     0x00000000     0xadeb
  .debug_line    0x00000000      0x676 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.o
  .debug_line    0x00000676      0x4e7 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.o
  .debug_line    0x00000b5d      0x43b Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.o
@@ -3495,21 +3495,21 @@ OUTPUT(praca_przejsciowa.elf elf32-littlearm)
  .debug_line    0x000063bf      0x326 Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1\port.o
  .debug_line    0x000066e5      0x40f Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.o
  .debug_line    0x00006af4      0xb9a Middlewares\Third_Party\FreeRTOS\Source\tasks.o
- .debug_line    0x0000768e      0x98b Src\Libraries\Pozyx_core.o
- .debug_line    0x00008019      0xee0 Src\Libraries\Pozyx_lib.o
- .debug_line    0x00008ef9      0x3cb Src\Tasks\All.o
- .debug_line    0x000092c4      0x30e Src\Tasks\Callbacks.o
- .debug_line    0x000095d2      0x1f4 Src\freertos.o
- .debug_line    0x000097c6      0x2d7 Src\gpio.o
- .debug_line    0x00009a9d      0x320 Src\i2c.o
- .debug_line    0x00009dbd      0x3d7 Src\main.o
- .debug_line    0x0000a194      0x289 Src\stm32h7xx_hal_msp.o
- .debug_line    0x0000a41d      0x316 Src\stm32h7xx_hal_timebase_TIM.o
- .debug_line    0x0000a733      0x386 Src\stm32h7xx_it.o
- .debug_line    0x0000aab9      0x2b0 Src\system_stm32h7xx.o
- .debug_line    0x0000ad69       0x7f startup\startup_stm32h743xx.o
+ .debug_line    0x0000768e      0x98e Src\Libraries\Pozyx_core.o
+ .debug_line    0x0000801c      0xee0 Src\Libraries\Pozyx_lib.o
+ .debug_line    0x00008efc      0x3cb Src\Tasks\All.o
+ .debug_line    0x000092c7      0x30e Src\Tasks\Callbacks.o
+ .debug_line    0x000095d5      0x1f4 Src\freertos.o
+ .debug_line    0x000097c9      0x2d7 Src\gpio.o
+ .debug_line    0x00009aa0      0x320 Src\i2c.o
+ .debug_line    0x00009dc0      0x3d7 Src\main.o
+ .debug_line    0x0000a197      0x289 Src\stm32h7xx_hal_msp.o
+ .debug_line    0x0000a420      0x316 Src\stm32h7xx_hal_timebase_TIM.o
+ .debug_line    0x0000a736      0x386 Src\stm32h7xx_it.o
+ .debug_line    0x0000aabc      0x2b0 Src\system_stm32h7xx.o
+ .debug_line    0x0000ad6c       0x7f startup\startup_stm32h743xx.o
 
-.debug_str      0x00000000     0x8c6b
+.debug_str      0x00000000     0x8c74
  .debug_str     0x00000000     0x17e7 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.o
                                0x1911 (size before relaxing)
  .debug_str     0x000017e7      0x539 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.o
@@ -3538,29 +3538,29 @@ OUTPUT(praca_przejsciowa.elf elf32-littlearm)
                                 0x82e (size before relaxing)
  .debug_str     0x00006034      0x81e Middlewares\Third_Party\FreeRTOS\Source\tasks.o
                                0x1240 (size before relaxing)
- .debug_str     0x00006852     0x1ef2 Src\Libraries\Pozyx_core.o
-                               0x2c1c (size before relaxing)
- .debug_str     0x00008744      0x262 Src\Libraries\Pozyx_lib.o
+ .debug_str     0x00006852     0x1efb Src\Libraries\Pozyx_core.o
+                               0x2c25 (size before relaxing)
+ .debug_str     0x0000874d      0x262 Src\Libraries\Pozyx_lib.o
                                0x2469 (size before relaxing)
- .debug_str     0x000089a6       0x48 Src\Tasks\All.o
+ .debug_str     0x000089af       0x48 Src\Tasks\All.o
                                0x21d4 (size before relaxing)
- .debug_str     0x000089ee       0x26 Src\Tasks\Callbacks.o
+ .debug_str     0x000089f7       0x26 Src\Tasks\Callbacks.o
                                0x2967 (size before relaxing)
- .debug_str     0x00008a14       0x60 Src\freertos.o
+ .debug_str     0x00008a1d       0x60 Src\freertos.o
                                 0x352 (size before relaxing)
- .debug_str     0x00008a74       0x1b Src\gpio.o
+ .debug_str     0x00008a7d       0x1b Src\gpio.o
                                0x115d (size before relaxing)
- .debug_str     0x00008a8f       0x33 Src\i2c.o
+ .debug_str     0x00008a98       0x33 Src\i2c.o
                                 0xf68 (size before relaxing)
- .debug_str     0x00008ac2       0x3f Src\main.o
+ .debug_str     0x00008acb       0x3f Src\main.o
                                0x1cca (size before relaxing)
- .debug_str     0x00008b01       0x1b Src\stm32h7xx_hal_msp.o
+ .debug_str     0x00008b0a       0x1b Src\stm32h7xx_hal_msp.o
                                0x10af (size before relaxing)
- .debug_str     0x00008b1c       0x61 Src\stm32h7xx_hal_timebase_TIM.o
+ .debug_str     0x00008b25       0x61 Src\stm32h7xx_hal_timebase_TIM.o
                                0x1797 (size before relaxing)
- .debug_str     0x00008b7d       0xb3 Src\stm32h7xx_it.o
+ .debug_str     0x00008b86       0xb3 Src\stm32h7xx_it.o
                                 0xc96 (size before relaxing)
- .debug_str     0x00008c30       0x3b Src\system_stm32h7xx.o
+ .debug_str     0x00008c39       0x3b Src\system_stm32h7xx.o
                                 0x9ce (size before relaxing)
 
 .comment        0x00000000       0x7c
@@ -3592,7 +3592,7 @@ OUTPUT(praca_przejsciowa.elf elf32-littlearm)
  .comment       0x0000007c       0x7d Src\stm32h7xx_it.o
  .comment       0x0000007c       0x7d Src\system_stm32h7xx.o
 
-.debug_frame    0x00000000     0x41ac
+.debug_frame    0x00000000     0x41b0
  .debug_frame   0x00000000      0x3a4 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.o
  .debug_frame   0x000003a4      0x16c Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.o
  .debug_frame   0x00000510       0xd0 Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.o
@@ -3607,20 +3607,20 @@ OUTPUT(praca_przejsciowa.elf elf32-littlearm)
  .debug_frame   0x000026ac       0xf0 Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1\port.o
  .debug_frame   0x0000279c       0xac Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.o
  .debug_frame   0x00002848      0x4d0 Middlewares\Third_Party\FreeRTOS\Source\tasks.o
- .debug_frame   0x00002d18      0x324 Src\Libraries\Pozyx_core.o
- .debug_frame   0x0000303c      0xdbc Src\Libraries\Pozyx_lib.o
- .debug_frame   0x00003df8       0x54 Src\Tasks\All.o
- .debug_frame   0x00003e4c       0x38 Src\Tasks\Callbacks.o
- .debug_frame   0x00003e84       0x48 Src\freertos.o
- .debug_frame   0x00003ecc       0x3c Src\gpio.o
- .debug_frame   0x00003f08       0x5c Src\i2c.o
- .debug_frame   0x00003f64       0x70 Src\main.o
- .debug_frame   0x00003fd4       0x2c Src\stm32h7xx_hal_msp.o
- .debug_frame   0x00004000       0x50 Src\stm32h7xx_hal_timebase_TIM.o
- .debug_frame   0x00004050       0xb8 Src\stm32h7xx_it.o
- .debug_frame   0x00004108       0x50 Src\system_stm32h7xx.o
- .debug_frame   0x00004158       0x2c d:/programs/atollic truestudio/truestudio for stm32 9.1.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/fpv5-sp-d16\libc.a(lib_a-init.o)
- .debug_frame   0x00004184       0x28 d:/programs/atollic truestudio/truestudio for stm32 9.1.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/fpv5-sp-d16\libc.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00002d18      0x328 Src\Libraries\Pozyx_core.o
+ .debug_frame   0x00003040      0xdbc Src\Libraries\Pozyx_lib.o
+ .debug_frame   0x00003dfc       0x54 Src\Tasks\All.o
+ .debug_frame   0x00003e50       0x38 Src\Tasks\Callbacks.o
+ .debug_frame   0x00003e88       0x48 Src\freertos.o
+ .debug_frame   0x00003ed0       0x3c Src\gpio.o
+ .debug_frame   0x00003f0c       0x5c Src\i2c.o
+ .debug_frame   0x00003f68       0x70 Src\main.o
+ .debug_frame   0x00003fd8       0x2c Src\stm32h7xx_hal_msp.o
+ .debug_frame   0x00004004       0x50 Src\stm32h7xx_hal_timebase_TIM.o
+ .debug_frame   0x00004054       0xb8 Src\stm32h7xx_it.o
+ .debug_frame   0x0000410c       0x50 Src\system_stm32h7xx.o
+ .debug_frame   0x0000415c       0x2c d:/programs/atollic truestudio/truestudio for stm32 9.1.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/fpv5-sp-d16\libc.a(lib_a-init.o)
+ .debug_frame   0x00004188       0x28 d:/programs/atollic truestudio/truestudio for stm32 9.1.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/fpv5-sp-d16\libc.a(lib_a-memcpy-stub.o)
 
 .stabstr        0x00000000       0x76
  .stabstr       0x00000000       0x76 d:/programs/atollic truestudio/truestudio for stm32 9.1.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/../../../../arm-atollic-eabi/lib/armv7e-m/fpu/fpv5-sp-d16\libnosys.a(getpid.o)
@@ -4235,6 +4235,7 @@ PozyxClass::begin(bool, int, int, int)            Src\Libraries\Pozyx_core.o
 PozyxClass::clearConfiguration(unsigned short)    Src\Libraries\Pozyx_lib.o
 PozyxClass::clearDevices(unsigned short)          Src\Libraries\Pozyx_lib.o
 PozyxClass::configInterruptPin(int, int, int, int, unsigned short) Src\Libraries\Pozyx_lib.o
+                                                  Src\Libraries\Pozyx_core.o
 PozyxClass::delay(int)                            Src\Libraries\Pozyx_core.o
                                                   Src\Libraries\Pozyx_lib.o
 PozyxClass::doAnchorCalibration(int, int, int, unsigned short*, long*) Src\Libraries\Pozyx_lib.o
