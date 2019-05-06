@@ -30,7 +30,7 @@ int PozyxClass::_mode;
 int PozyxClass::_hw_version;       // pozyx harware version
 int PozyxClass::_fw_version;       // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
 
-
+PozyxClass Pozyx;
 I2C_HandleTypeDef i2c;
 /**
  * The interrupt handler for the pozyx device: keeping it uber short!
@@ -604,10 +604,22 @@ int PozyxClass::Init(void)
 		}
 		HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
 	}
+	//inicjujê kolejkê
+	irqQueue = xQueueCreate(2,sizeof(int));
 	return status;
 }
 
-void PozyxClass::SendMsgFromIrq(void){
+
+int PozyxClass::waitOnINT(int timeout){
+	int msg;
+	if(xQueueReceive(irqQueue,&msg,timeout)==pdTRUE){
+		return msg;
+	}else{
+		return 0;
+	}
+}
+
+void PozyxClass::sendMsgFromISR(void){
 	int msg=1;
 
 	BaseType_t xHigherPriorityTaskWokenByPost;
@@ -617,7 +629,7 @@ void PozyxClass::SendMsgFromIrq(void){
 
 	// Loop until the buffer is empty.
 		// Post each byte.
-	xQueueSendFromISR(irqQueue,&msg,&xHigherPriorityTaskWokenByPost);
+	xQueueSendFromISR(PozyxClass::irqQueue,&msg,&xHigherPriorityTaskWokenByPost);
 
 
 	// Now the buffer is empty we can switch context if necessary.  Note that the
@@ -628,4 +640,4 @@ void PozyxClass::SendMsgFromIrq(void){
 	}
 }
 
-PozyxClass Pozyx;
+

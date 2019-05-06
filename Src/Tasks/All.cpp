@@ -30,40 +30,14 @@ void All_begin(void){
 
  void PozyxTask(void * argument){
 
-	 // Pozyx.Init();
+	  Pozyx.Init();
 
-	 	 if(Pozyx.regRead(POZYX_WHO_AM_I, regs, 3) == POZYX_FAILURE){
-	     //if(Pozyx.regRead(POZYX_ST_RESULT, &selftest, 1) == POZYX_FAILURE){
-	 	 //if(Pozyx.begin(false, MODE_INTERRUPT, POZYX_INT_MASK_IMU,POZYX_INT_PIN0 ) == POZYX_FAILURE){
-			 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET); //czerwona
-
-		 }
-		 else {
-			 if(regs[0] == (0x43)){
-			 HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET); // w przypadku gdyby sie nie uda³o powinna sie zapalic jedna z diod
-			 }
-			 else if (regs[0] == 0x00){
-				 for(int i=0;i<10;i++){
-					 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-					 HAL_Delay(100);
-					 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
-					 HAL_Delay(100);
-				 }
-			 }
-			else{
-				for(int i=0;i<10;i++){
-					HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
-					HAL_Delay(100);
-					HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
-					HAL_Delay(100);
-				}
-		    }
-		 }
 
 	  while(1){
-		  Pozyx.setLed(4,1);
-		  vTaskDelay(100);
-	  	  }
+		  if(Pozyx.waitOnINT(1000)){
+			  Pozyx.setLed(4,1);
+		  }
+	  }
  }
 
 /*
