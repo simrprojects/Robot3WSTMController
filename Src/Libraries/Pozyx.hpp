@@ -12,11 +12,8 @@
 
 #include <inttypes.h>
 #include "String.h"
-
-
 #include "FreeRTOS.h"
 #include "queue.h"
-
 
 
 #undef NULL
@@ -236,17 +233,16 @@ typedef struct __attribute__((packed))_device_range {
 class PozyxClass
 {
 private:
-	xQueueHandle irqQueue;    /**<kolejka do synchronizacji w¹tku i linii INT*/
+	static xQueueHandle irqQueue;/**<kolejka do synchronizacji w¹tku i linii INT*/
 protected:
     static int _mode;               // the mode of operation, can be MODE_INTERRUPT or MODE_POLLING
 
 
 
-    static int _hw_version;         // Pozyx hardware version
+    static int _hw_version;         // Pozyx harware version
     static int _fw_version;         // Pozyx software (firmware) version. (By updating the firmware on the Pozyx device, this value can change)
 
     static char params[MAX_BUF_SIZE];
-
     static void delay(int ms){};
     static unsigned int millis(void){return 0;}
     void abort(void){};
@@ -306,7 +302,6 @@ protected:
 public:
     static int _interrupt;          // variable to indicate that an interrupt has occured
 
-
     /**
         * Function: Init
         * -----------------------
@@ -316,7 +311,7 @@ public:
         *   #POZYX_FAILURE: error occured during the process
         *   #POZYX_SUCCESS: successful execution of the function
         */
-    int Init();
+    static int Init();
 
     static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);
 
@@ -1879,19 +1874,10 @@ public:
     * @retval #POZYX_FAILURE function failed.
     */
     static int getDeviceCoordinates(uint16_t device_id, coordinates_t *coordinates, uint16_t remote_id = NULL);
-
     /**
-     * @brief Funkcja oczekuje okreœlony czas na aktywny stan na linii INT
      *
-     * @retval 1 - doczekano siê na aktywny stan na linii int
-     * @retval 0 - przekroczono czas oczekiwania lub inny b³ad
      */
-    int waitOnINT(int timeout);
-
-    /**
-	 *
-	 */
-	void sendMsgFromISR(void);
+    static void SendMsgFromIrq(void);
 /** @}*/
 
 };
