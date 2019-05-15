@@ -23,6 +23,9 @@ void PozyxTask(void* argument);
 xTaskHandle  PozyxTaskHandle;
 
 uint8_t regs[3],selftest; //test
+sensor_raw_t sensor_raw;
+int16_t acceleration[3];
+uint32_t press;
 
 void All_begin(void){
 	 xTaskCreate(PozyxTask,"pozyx", 200,0, 1, &PozyxTaskHandle);
@@ -30,38 +33,17 @@ void All_begin(void){
 
  void PozyxTask(void * argument){
 
-	 // Pozyx.Init();
-
-	 	 if(Pozyx.regRead(POZYX_WHO_AM_I, regs, 3) == POZYX_FAILURE){
-	     //if(Pozyx.regRead(POZYX_ST_RESULT, &selftest, 1) == POZYX_FAILURE){
-	 	 //if(Pozyx.begin(false, MODE_INTERRUPT, POZYX_INT_MASK_IMU,POZYX_INT_PIN0 ) == POZYX_FAILURE){
-			 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET); //czerwona
-
-		 }
-		 else {
-			 if(regs[0] == (0x43)){
-			 HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET); // w przypadku gdyby sie nie uda³o powinna sie zapalic jedna z diod
-			 }
-			 else if (regs[0] == 0x00){
-				 for(int i=0;i<10;i++){
-					 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-					 HAL_Delay(100);
-					 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
-					 HAL_Delay(100);
-				 }
-			 }
-			else{
-				for(int i=0;i<10;i++){
-					HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
-					HAL_Delay(100);
-					HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
-					HAL_Delay(100);
-				}
-		    }
-		 }
+	 Pozyx.begin(false, MODE_POLLING, POZYX_INT_MASK_IMU);
+	 Pozyx.getRawSensorData(&sensor_raw);
 
 	  while(1){
+		  Pozyx.getRawSensorData(&sensor_raw);
+		  acceleration[0] = sensor_raw.acceleration[0];
+		  acceleration[1] = sensor_raw.acceleration[1];
+		  acceleration[2] = sensor_raw.acceleration[2];
+		  press = sensor_raw.pressure;
 		  Pozyx.setLed(4,1);
+		  Pozyx.setLed(1,1);
 		  vTaskDelay(100);
 	  	  }
  }

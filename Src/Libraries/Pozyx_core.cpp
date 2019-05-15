@@ -607,25 +607,25 @@ int PozyxClass::Init(void)
 	return status;
 }
 
-void PozyxClass::SendMsgFromIrq(void){
-	int msg=1;
-
-	BaseType_t xHigherPriorityTaskWokenByPost;
-
-	// We have not woken a task at the start of the ISR.
-	xHigherPriorityTaskWokenByPost = pdFALSE;
-
-	// Loop until the buffer is empty.
-		// Post each byte.
-	xQueueSendFromISR(irqQueue,&msg,&xHigherPriorityTaskWokenByPost);
-
-
-	// Now the buffer is empty we can switch context if necessary.  Note that the
-	// name of the yield function required is port specific.
-	if( xHigherPriorityTaskWokenByPost )
-	{
-		taskYIELD();
-	}
-}
+//void PozyxClass::SendMsgFromIrq(void){
+//	int msg=1;
+//
+//	BaseType_t xHigherPriorityTaskWokenByPost;
+//
+//	// We have not woken a task at the start of the ISR.
+//	xHigherPriorityTaskWokenByPost = pdFALSE;
+//
+//	// Loop until the buffer is empty.
+//		// Post each byte.
+//	xQueueSendFromISR(irqQueue,&msg,&xHigherPriorityTaskWokenByPost);
+//
+//
+//	// Now the buffer is empty we can switch context if necessary.  Note that the
+//	// name of the yield function required is port specific.
+//	if( xHigherPriorityTaskWokenByPost )
+//	{
+//		taskYIELD();
+//	}
+//}
 
 PozyxClass Pozyx;
