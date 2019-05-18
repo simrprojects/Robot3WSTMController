@@ -43,7 +43,7 @@ void All_begin(void){
 		  acceleration[2] = sensor_raw.acceleration[2];
 		  press = sensor_raw.pressure;
 		  Pozyx.setLed(4,1);
-		  Pozyx.setLed(1,1);
+		  Pozyx.setLed(2,1);
 		  vTaskDelay(100);
 	  	  }
  }

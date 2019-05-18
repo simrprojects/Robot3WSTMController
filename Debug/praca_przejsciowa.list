@@ -11208,10 +11208,10 @@ void All_begin(void){
  80050bc:	2101      	movs	r1, #1
  80050be:	2004      	movs	r0, #4
  80050c0:	f7ff ff10 	bl	8004ee4 <_ZN10PozyxClass6setLedEibt>
-		  Pozyx.setLed(1,1);
+		  Pozyx.setLed(2,1);
  80050c4:	2200      	movs	r2, #0
  80050c6:	2101      	movs	r1, #1
- 80050c8:	2001      	movs	r0, #1
+ 80050c8:	2002      	movs	r0, #2
  80050ca:	f7ff ff0b 	bl	8004ee4 <_ZN10PozyxClass6setLedEibt>
 		  vTaskDelay(100);
  80050ce:	2064      	movs	r0, #100	; 0x64
