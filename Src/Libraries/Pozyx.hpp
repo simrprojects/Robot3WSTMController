@@ -233,7 +233,7 @@ typedef struct __attribute__((packed))_device_range {
 class PozyxClass
 {
 private:
-	static xQueueHandle irqQueue;/**<kolejka do synchronizacji w¹tku i linii INT*/
+	static QueueHandle_t irqQueue;/**<kolejka do synchronizacji w¹tku i linii INT*/
 protected:
     static int _mode;               // the mode of operation, can be MODE_INTERRUPT or MODE_POLLING
 
@@ -241,6 +241,7 @@ protected:
 
     static int _hw_version;         // Pozyx harware version
     static int _fw_version;         // Pozyx software (firmware) version. (By updating the firmware on the Pozyx device, this value can change)
+    static int _interrupt;
 
     static char params[MAX_BUF_SIZE];
     static void delay(int ms){};
@@ -300,7 +301,7 @@ protected:
     */
 
 public:
-    static int _interrupt;          // variable to indicate that an interrupt has occured
+            // variable to indicate that an interrupt has occured
 
     /**
         * Function: Init

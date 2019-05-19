@@ -38,9 +38,9 @@ void All_begin(void){
 
 	  while(1){
 		  Pozyx.getRawSensorData(&sensor_raw);
-		  acceleration[0] = sensor_raw.acceleration[0];
-		  acceleration[1] = sensor_raw.acceleration[1];
-		  acceleration[2] = sensor_raw.acceleration[2];
+		  acceleration[0] = sensor_raw.euler_angles[0];
+		  acceleration[1] = sensor_raw.euler_angles[1];
+		  acceleration[2] = sensor_raw.euler_angles[2];
 		  press = sensor_raw.pressure;
 		  Pozyx.setLed(4,1);
 		  Pozyx.setLed(2,1);

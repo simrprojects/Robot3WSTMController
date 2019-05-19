@@ -30,6 +30,7 @@ int PozyxClass::_mode;
 int PozyxClass::_hw_version;       // pozyx harware version
 int PozyxClass::_fw_version;       // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
 
+QueueHandle_t PozyxClass::irqQueue;
 
 I2C_HandleTypeDef i2c;
 /**
@@ -582,7 +583,7 @@ int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_d
 		break;
 	default:
 		///* TODO */
-		///* dodac obs³ógê wysy³ania wiêkszej iloœci danych */
+		///* dodac obs³ugê wysy³ania wiêkszej iloœci danych */
 		/*HAL_I2C_Master_Transmit(&hi2c1, POZYX_I2C_ADDRESS, write_data,write_len,100);
 		HAL_I2C_Master_Receive(&hi2c1, POZYX_I2C_ADDRESS, read_data, read_len,100);
 		while(1);
@@ -607,25 +608,25 @@ int PozyxClass::Init(void)
 	return status;
 }
 
-//void PozyxClass::SendMsgFromIrq(void){
-//	int msg=1;
-//
-//	BaseType_t xHigherPriorityTaskWokenByPost;
-//
-//	// We have not woken a task at the start of the ISR.
-//	xHigherPriorityTaskWokenByPost = pdFALSE;
-//
-//	// Loop until the buffer is empty.
-//		// Post each byte.
-//	xQueueSendFromISR(irqQueue,&msg,&xHigherPriorityTaskWokenByPost);
-//
-//
-//	// Now the buffer is empty we can switch context if necessary.  Note that the
-//	// name of the yield function required is port specific.
-//	if( xHigherPriorityTaskWokenByPost )
-//	{
-//		taskYIELD();
-//	}
-//}
+void PozyxClass::SendMsgFromIrq(void){
+	int msg= 1;
+
+	BaseType_t xHigherPriorityTaskWokenByPost;
+
+	// We have not woken a task at the start of the ISR.
+	xHigherPriorityTaskWokenByPost = pdFALSE;
+
+	// Loop until the buffer is empty.
+		// Post each byte.
+	xQueueSendFromISR(irqQueue,&msg,&xHigherPriorityTaskWokenByPost);
+
+
+	// Now the buffer is empty we can switch context if necessary.  Note that the
+	// name of the yield function required is port specific.
+	if( xHigherPriorityTaskWokenByPost )
+	{
+		taskYIELD();
+	}
+}
 
 PozyxClass Pozyx;
