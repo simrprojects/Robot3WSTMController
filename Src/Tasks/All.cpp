@@ -18,6 +18,8 @@ extern "C"{
 
 #include "Pozyx.hpp"
 
+
+
 void PozyxTask(void* argument);
 
 xTaskHandle  PozyxTaskHandle;
@@ -33,12 +35,13 @@ void All_begin(void){
 
  void PozyxTask(void * argument){
 
-	 Pozyx.begin(false, MODE_POLLING, POZYX_INT_MASK_IMU);
+	 Pozyx.begin(false, MODE_INTERRUPT, POZYX_INT_MASK_POS, POZYX_INT_PIN1);
 	 Pozyx.getRawSensorData(&sensor_raw);
 
 	  while(1){
+
 		  Pozyx.getRawSensorData(&sensor_raw);
-		  acceleration[0] = sensor_raw.euler_angles[0];
+		  acceleration[0] = sensor_raw.acceleration[0];
 		  acceleration[1] = sensor_raw.euler_angles[1];
 		  acceleration[2] = sensor_raw.euler_angles[2];
 		  press = sensor_raw.pressure;
@@ -47,6 +50,8 @@ void All_begin(void){
 		  vTaskDelay(100);
 	  	  }
  }
+
+
 
 
 

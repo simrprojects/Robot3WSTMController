@@ -30,7 +30,7 @@ int PozyxClass::_mode;
 int PozyxClass::_hw_version;       // pozyx harware version
 int PozyxClass::_fw_version;       // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
 
-QueueHandle_t PozyxClass::irqQueue;
+//QueueHandle_t PozyxClass::irqQueue;
 
 I2C_HandleTypeDef i2c;
 /**
@@ -609,6 +609,7 @@ int PozyxClass::Init(void)
 }
 
 void PozyxClass::SendMsgFromIrq(void){
+
 	int msg= 1;
 
 	BaseType_t xHigherPriorityTaskWokenByPost;
