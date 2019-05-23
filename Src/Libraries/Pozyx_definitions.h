@@ -314,4 +314,9 @@
 #define PIN_ACTIVE_LOW                    0
 #define PIN_ACTIVE_HIGH                   1
 
+// anchor adresses
+#define POZYX_ANCHOR_ADDRESS_1		0x6716
+#define POZYX_ANCHOR_ADDRESS_2		0x6771
+#define POZYX_ANCHOR_ADDRESS_3		0x6e3d
+
 #endif
