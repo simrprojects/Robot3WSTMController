@@ -591,22 +591,7 @@ int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_d
 	return (status);
 }
 
-int PozyxClass::Init(void)
-{
-	int status = 1;
-	uint32_t trials = 10;
-	HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET);
-	status =  HAL_I2C_IsDeviceReady(&hi2c1,POZYX_I2C_ADDRESS, trials,100);
-	if(status == POZYX_SUCCESS){
-		for(int i=0;i<10;i++){
-			HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-			HAL_Delay(100);
-			HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
-		}
-		HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_RESET);
-	}
-	return status;
-}
+
 
 void PozyxClass::SendMsgFromIrq(void){
 
@@ -628,6 +613,32 @@ void PozyxClass::SendMsgFromIrq(void){
 	{
 		taskYIELD();
 	}
+}
+
+void PozyxClass::setAnchorsManual(uint16_t num_anchors, uint16_t *anchor_addresses ,int32_t *anchors_x,int32_t *anchors_y,int32_t *heights, uint16_t remote_id ){
+		for(int i = 0; i < num_anchors; i++){
+			device_coordinates_t  anchor;
+			anchor.network_id = anchor_addresses[i];
+			anchor.flag = 0x1;
+			anchor.pos.x = anchors_x[i];
+			anchor.pos.y = anchors_y[i];
+			anchor.pos.z = heights[i];
+
+			addDevice(anchor,remote_id);
+		}
+		if(num_anchors>4){
+			setSelectionOfAnchors(POZYX_ANCHOR_SEL_AUTO, num_anchors, remote_id);
+		}
+}
+
+void PozyxClass::setTagsAlgorithm(uint8_t algorithm, uint8_t dimension = POZYX_3D){
+//	const int num_tags = 3;
+//	uint16_t tags[num_tags] = {0x0001, 0x0002, 0x0003};
+//	uint16_t tag = 0x0001;
+	setPositionAlgorithm(algorithm,dimension);
+//	for(int i = 0; i < num_tags; i++){
+//		setPositionAlgorithm(algorithm,dimension,tag);
+//	}
 }
 
 PozyxClass Pozyx;

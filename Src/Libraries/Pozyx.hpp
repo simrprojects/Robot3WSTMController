@@ -303,16 +303,7 @@ protected:
 public:
             // variable to indicate that an interrupt has occured
 
-    /**
-        * Function: Init
-        * -----------------------
-        * This function is for initializing connection with pozyx. It will try 10 times to connect to pozyx
-        * and then it will return success or failure.
-        * @return
-        *   #POZYX_FAILURE: error occured during the process
-        *   #POZYX_SUCCESS: successful execution of the function
-        */
-    static int Init();
+
 
     static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);
 
@@ -1879,7 +1870,28 @@ public:
      *
      */
     static void SendMsgFromIrq(void);
+    /**
+     *
+     */
+    /**
+    * Function for add manually the anchors to the device list, which it will use during positioning proccess
+    * If there be more than 4 anchors, the device's anchor selection is set to automatically use all avaliable
+    * anchors from this set
+    *
+    *   @param num_anchors: the number of anchors
+    *   @param anchors_addresses: the network id of the anchors
+    *   @param anchors_x: anchor x-coorindates in mm
+    *   @param anchors_y: anchor y-coordinates in mm
+    *   @param heights: anchor z-coordinates in mm
+    *   @param remote_id: optional parameter that determines the remote device to be used (normal = 0)
+    */
+    static void setAnchorsManual(uint16_t num_anchors, uint16_t *anchors_addresses, int32_t *anchors_x,int32_t *anchors_y, int32_t *heights, uint16_t remote_id = NULL);
+    /**
+     *
+     */
+    static void setTagsAlgorithm(uint8_t algorithm, uint8_t dimension);
 /** @}*/
+
 
 };
 extern PozyxClass Pozyx;
